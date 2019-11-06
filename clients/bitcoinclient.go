@@ -1,21 +1,22 @@
 package clients
 
 import (
+	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
 	"strconv"
 )
 
-const bitcoinPriceURL = "https://blockchain.info/tobtc?currency=USD&value=10.99"
-
 // BitcoinClient for getting Bitcoin price
 type BitcoinClient struct {
 }
 
 // GetBitcoinPrice returns the current bitcoin price
-func (c *BitcoinClient) GetBitcoinPrice() (float64, error) {
-	resp, err := http.Get(bitcoinPriceURL)
+func (c *BitcoinClient) GetBitcoinPrice(price float64) (float64, error) {
+
+	url := fmt.Sprintf("https://blockchain.info/tobtc?currency=USD&value=%f", price)
+	resp, err := http.Get(url)
 	if err != nil {
 		return -1, err
 	}

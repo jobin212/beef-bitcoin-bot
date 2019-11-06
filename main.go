@@ -26,6 +26,7 @@ func main() {
 
 	twitterClient := clients.TwitterClient{}
 	bitcoinClient := clients.BitcoinClient{}
+	beefClient := clients.BeefClient{}
 
 	err = twitterClient.InitTwitterClient(&twitterCreds)
 	if err != nil {
@@ -33,12 +34,17 @@ func main() {
 		log.Println(err)
 	}
 
-	price, err := bitcoinClient.GetBitcoinPrice()
+	beefPrice, err := beefClient.GetBeefPrice()
 	if err != nil {
 		log.Println(err)
 	}
 
-	message := fmt.Sprintf("1 lb of costco ribeye is approximately: %.10f₿", price)
+	bitcoinPrice, err := bitcoinClient.GetBitcoinPrice(beefPrice)
+	if err != nil {
+		log.Println(err)
+	}
+
+	message := fmt.Sprintf("1lb of beef is approximately: %.10f₿", bitcoinPrice)
 	log.Printf(message)
 	err = twitterClient.UpdateStatus(message)
 	if err != nil {
