@@ -1,5 +1,5 @@
  ## How to run 
- - Create a .env file in the root directory with your twitter app credentials
+ - Create a .env file in the root directory with your twitter app credentials (see .env.example for skeleton)
  - go run .
  
  ## Data sources
