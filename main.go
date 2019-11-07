@@ -43,8 +43,16 @@ func main() {
 	if err != nil {
 		log.Println(err)
 	}
+	satoshiPrice := 100000000 * bitcoinPrice
 
-	message := fmt.Sprintf("1lb of beef is approximately: %.10f₿", bitcoinPrice)
+	cattlePrice, err := bitcoinClient.GetBitcoinPrice(975.0)
+	if err != nil {
+		log.Println(err)
+	}
+	numCattle := 1 / cattlePrice
+
+	message := fmt.Sprintf("1lb of beef is approximately %.0f satoshis globally 🌎\nWith one bitcoin you can buy about %.1f Hereford Heiferettes in Wyoming\n🐄🐄🐄🐄🐄🐄🐄🐄🐄",
+		satoshiPrice, numCattle)
 	log.Printf(message)
 	err = twitterClient.UpdateStatus(message)
 	if err != nil {

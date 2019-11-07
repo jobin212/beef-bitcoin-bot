@@ -28,5 +28,10 @@ func (c *BitcoinClient) GetBitcoinPrice(price float64) (float64, error) {
 		log.Fatalln(err)
 	}
 
-	return strconv.ParseFloat(string(body), 32)
+	f, err := strconv.ParseFloat(string(body), 32)
+	if err != nil {
+		return -1, err
+	}
+
+	return f, nil
 }
