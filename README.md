@@ -7,6 +7,9 @@
  - Beef: 
     - Global prices: https://fred.stlouisfed.org/series/PBEEFUSDM which has nominal US prices\
     - Wyoming head of cow prices: http://www.torringtonlivestock.com/sale_results.asp
+    
+## Twitter Inspiration
+ - https://twitter.com/real_vijay/status/1205254821067948032?s=20
 
 ## TODO
 - Create beef price over time chart
