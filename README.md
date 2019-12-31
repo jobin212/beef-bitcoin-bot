@@ -10,6 +10,7 @@
     
 ## Twitter Inspiration
  - https://twitter.com/real_vijay/status/1205254821067948032?s=20
+ - https://twitter.com/bitstein/status/1152346759269670914?s=20
 
 ## TODO
 - Create beef price over time chart
